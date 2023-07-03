@@ -13,9 +13,24 @@ const rl = readline.createInterface({
 
 const pigLatin = (word) => {
 
-  // Your code here
 
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+    let newword = '';
+
+    word = word.trim().toLowerCase();
+
+    if(vowels.indexOf(word[0]) > -1) {
+        newword = word + 'yay';
+        return newword;
+    } else {
+        let firstMatch = word.match(/[aeiou]/g) || 0;
+        let vowel = word.indexOf(firstMatch[0]);
+        newword = word.substring(vowel) + word.substring(0, vowel) + 'ay';
+        return newword;
+    }
 }
+
+
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
